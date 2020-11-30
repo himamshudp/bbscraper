@@ -41,7 +41,7 @@ def Bigbascket_scraper():
     driver = webdriver.Chrome(executable_path=os.environ.get("CHROMEDRIVER_PATH"), chrome_options=chrome_options)
     
     
-    data = requests.get("https://www.bigbasket.com/product/all-categories/") 
+    data = driver.get("https://www.bigbasket.com/product/all-categories/") 
     soup =bs4(data.text,"html.parser") 
     category_name = []
     extensions = []
@@ -72,7 +72,7 @@ def Bigbascket_scraper():
     df_snacks['category_name']='snacks-branded-foods'
     frames=[df_egg,df_gwf,df_grains,df_veg,df_backery,df_bev,df_snacks]
     url_selected=pd.concat(frames)
-    #url_selected.to_csv(r'bb_selected_link.csv',index = False)
+    url_selected.to_csv(r'bb_selected_link.csv',index = False)
     
     
     product_url =  url_selected['link'].tolist()
