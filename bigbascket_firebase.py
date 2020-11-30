@@ -20,10 +20,6 @@ import schedule
 from firebase_admin import storage
 import time
 
-
-# In[4]:
-
-
 def Bigbascket_scraper():
  
     # headless chorme
