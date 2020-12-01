@@ -23,12 +23,12 @@ def url_scrap():
     chrome_options.add_argument("--no-sandbox")
 
     #forlocal machine
-    chromedriver = 'E://chromedriver.exe'
-    driver = webdriver.Chrome(executable_path=chromedriver, chrome_options=chrome_options)
+    #chromedriver = 'E://chromedriver.exe'
+    #driver = webdriver.Chrome(executable_path=chromedriver, chrome_options=chrome_options)
 
     #for cloud
-    #chrome_options.binary_location = os.environ.get("GOOGLE_CHROME_BIN")
-    #driver = webdriver.Chrome(executable_path=os.environ.get("CHROMEDRIVER_PATH"), chrome_options=chrome_options)
+    chrome_options.binary_location = os.environ.get("GOOGLE_CHROME_BIN")
+    driver = webdriver.Chrome(executable_path=os.environ.get("CHROMEDRIVER_PATH"), chrome_options=chrome_options)
     
     url="https://www.bigbasket.com/product/all-categories/"
     driver.get(url)
@@ -70,17 +70,4 @@ def url_scrap():
     url_selected=pd.concat(frames)
     url_selected.to_csv(r'bb_selected_link.csv',index = False)
 
-    
-
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
-
-
-
+  
